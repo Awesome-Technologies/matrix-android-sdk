@@ -1077,6 +1077,12 @@ public class RoomState implements Externalizable, CryptoRoomState {
             // excepts the membership ones
             // they are saved elsewhere
             if (!TextUtils.isEmpty(eventType) && !Event.EVENT_TYPE_STATE_ROOM_MEMBER.equals(eventType)) {
+                if (eventType.equals(Event.EVENT_TYPE_MESSAGE_ENCRYPTED)) {
+                    String mTimeLineId = System.currentTimeMillis() + "";
+                    getDataHandler().decryptEvent(event, mTimeLineId);
+                    eventType = event.getType();
+                }
+
                 List<Event> eventsList = mStateEvents.get(eventType);
 
                 if (null == eventsList) {
