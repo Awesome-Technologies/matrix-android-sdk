@@ -2269,8 +2269,13 @@ public class Room implements CryptoRoom {
 
                             // sending in progress
                             mDataHandler.updateEventState(event, Event.SentState.SENDING);
-                            mDataHandler.getDataRetriever().getRoomsRestClient().sendEventToRoom(event.eventId, getRoomId(),
-                                    encryptEventContentResult.mEventType, encryptEventContentResult.mEventContent.getAsJsonObject(), localCB);
+                            if (event.stateKey == null) {
+                                mDataHandler.getDataRetriever().getRoomsRestClient().sendEventToRoom(event.eventId, getRoomId(),
+                                        encryptEventContentResult.mEventType, encryptEventContentResult.mEventContent.getAsJsonObject(), localCB);
+                            } else {
+                                mDataHandler.getDataRetriever().getRoomsRestClient().sendStateEvent(getRoomId(),
+                                        encryptEventContentResult.mEventType, event.stateKey, encryptEventContentResult.mEventContent.getAsJsonObject(), localCB);
+                            }
                         }
 
                         @Override

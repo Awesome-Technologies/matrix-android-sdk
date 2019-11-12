@@ -102,6 +102,20 @@ public interface RoomsApi {
      * @param roomId         the room id.
      * @param stateEventType the state event type
      * @param stateKey       the state keys
+     * @param content        the event content
+     */
+    @PUT("rooms/{roomId}/state/{state_event_type}/{stateKey}")
+    Call<CreatedEvent> sendStateEvent(@Path("roomId") String roomId,
+                              @Path("state_event_type") String stateEventType,
+                              @Path("stateKey") String stateKey,
+                              @Body JsonObject content);
+
+    /**
+     * Send a generic state events
+     *
+     * @param roomId         the room id.
+     * @param stateEventType the state event type
+     * @param stateKey       the state keys
      * @param params         the request parameters
      */
     @PUT("rooms/{roomId}/state/{state_event_type}/{stateKey}")
