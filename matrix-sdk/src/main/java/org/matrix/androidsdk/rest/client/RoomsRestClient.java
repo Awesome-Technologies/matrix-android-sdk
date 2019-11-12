@@ -18,6 +18,7 @@
 
 package org.matrix.androidsdk.rest.client;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import android.text.TextUtils;
 
@@ -685,6 +686,27 @@ public class RoomsRestClient extends RestClient<RoomsApi> {
                         updatePowerLevels(roomId, powerLevels, callback);
                     }
                 }));
+    }
+
+    /**
+     * Send a state events.
+     *
+     * @param roomId    the dedicated room id
+     * @param eventType the event type
+     * @param stateKey  the state key
+     * @param content   the event content
+     * @param callback  the callback containing the created event if successful
+     */
+    public void sendStateEvent(final String roomId,
+                               final String eventType,
+                               @NonNull final String stateKey,
+                               final JsonObject content,
+                               final ApiCallback<CreatedEvent> callback) {
+        final String description = "sendStateEvent : roomId " + roomId + " - eventType " + eventType;
+
+        mApi.sendStateEvent(roomId, eventType, stateKey, content)
+                .enqueue(new RestAdapterCallback<>(description, mUnsentEventsManager, callback,
+                        () -> sendStateEvent(roomId, eventType, stateKey, content, callback)));
     }
 
     /**
