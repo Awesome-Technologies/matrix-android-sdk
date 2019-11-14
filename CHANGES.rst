@@ -1,3 +1,10 @@
+Changes to Matrix Android SDK in 0.9.27-AMP (2019-11-12)
+=======================================================
+
+Features:
+ - Decrypt state events if necessary
+ - Add methods to support sending encrypted state events
+
 Changes to Matrix Android SDK in 0.9.27 (2018-08-28)
 =======================================================
 
