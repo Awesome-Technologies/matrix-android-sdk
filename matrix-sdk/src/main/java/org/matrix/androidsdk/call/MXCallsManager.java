@@ -154,7 +154,7 @@ public class MXCallsManager {
      * @apiNote Performs an implicit initialization of the PeerConnectionFactory
      */
     public boolean isSupported() {
-        return MXWebRtcCall.isSupported(mContext);
+        return MXWebRtcCall.isSupported();
     }
 
     /**

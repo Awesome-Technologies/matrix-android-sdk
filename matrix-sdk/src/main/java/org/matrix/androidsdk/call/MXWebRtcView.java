@@ -502,7 +502,12 @@ public class MXWebRtcView extends ViewGroup {
             SurfaceViewRenderer surfaceViewRenderer = getSurfaceViewRenderer();
             surfaceViewRenderer.init(sharedContext, rendererEvents);
 
-            videoTrack.addSink(surfaceViewRenderer);
+            try {
+                videoTrack.addSink(surfaceViewRenderer);
+            } catch (Exception e) {
+                Log.e(LOG_TAG, "Failed to add a VideoTrack! " + e.getMessage());
+                videoTrack.dispose();
+            }
         }
     }
 }
