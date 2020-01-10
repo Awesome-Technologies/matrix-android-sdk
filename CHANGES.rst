@@ -1,6 +1,9 @@
 Changes to Matrix Android SDK in 0.9.32-AMP (2010-01-10)
 =======================================================
 
+Improvements:
+ - Upgrade `react-native-webrtc` library to version `1.75.2-jitsi-2`, using Jitsi repository
+
 Bugfix:
  - Fix / App locks up during call hangup
 
