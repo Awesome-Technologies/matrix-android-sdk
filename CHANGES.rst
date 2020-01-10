@@ -1,3 +1,10 @@
+Changes to Matrix Android SDK in 0.9.32-AMP (2010-01-10)
+=======================================================
+
+Bugfix:
+ - Fix / App locks up during call hangup
+
+
 Changes to Matrix Android SDK in 0.9.32 (2019-11-25)
 =======================================================
 
