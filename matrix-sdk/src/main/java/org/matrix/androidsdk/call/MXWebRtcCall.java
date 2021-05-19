@@ -336,13 +336,11 @@ public class MXWebRtcCall extends MXCall {
 
         // mPeerConnectionFactory is static so it might be used by another call
         // so we test that the current has been created
-        /* FIXME: This hangs sometimes, so far no negative effects when left out
         if (isPeerConnectionFactoryAllowed && (null != mPeerConnectionFactory)) {
             Log.w(LOG_TAG, "Call to mPeerConnectionFactory.dispose() has been removed");
             // mPeerConnectionFactory.dispose();
             mPeerConnectionFactory = null;
         }
-        */
 
         if (null != mCallView) {
             final View fCallView = mCallView;

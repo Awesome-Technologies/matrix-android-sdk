@@ -1,4 +1,10 @@
-Changes to Matrix Android SDK in 0.9.36 (2020-09-14)
+ Changes to Matrix Android SDK in 0.9.36-AMP (2021-05-19)
+=======================================================
+
+Bugfix:
+ - Fix making calls not working after the first one until app restart
+ 
+ Changes to Matrix Android SDK in 0.9.36 (2020-09-14)
 =======================================================
 
 Improvements:
